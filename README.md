@@ -34,6 +34,8 @@ openai = OpenAI()
 
 ## Endpoints
 
+API: <https://platform.openai.com/docs/api-reference/audio>
+
 ### Audio
 
 `01.endpoints-audio` 디렉토리에서 실행합니다.
@@ -73,6 +75,8 @@ TODO
 `09.endpoints-moderations` 디렉토리에서 실행합니다.
 
 ## Assistants
+
+API: <https://platform.openai.com/docs/api-reference/assistants>
 
 ### 예제 1
 
