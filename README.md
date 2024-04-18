@@ -36,24 +36,48 @@ openai = OpenAI()
 
 ### Audio
 
+`01.endpoints-audio` 디렉토리에서 실행합니다.
+
 ### Chat
+
+`02.endpoints-chat` 디렉토리에서 실행합니다.
 
 ### Embeddings
 
+`03.endpoints-embeddings` 디렉토리에서 실행합니다.
+
 ### Fine-tunnig
+
+TODO
+<!-- `04.endpoints-fine-tuning` 디렉토리에서 실행합니다. -->
 
 ### Batch
 
+TODO
+<!-- `05.endpoints-batch` 디렉토리에서 실행합니다. -->
+
 ### File
+
+`06.endpoints-file` 디렉토리에서 실행합니다.
 
 ### Images
 
+`07.endpoints-images` 디렉토리에서 실행합니다.
+
 ### Models
 
+`08.endpoints-models` 디렉토리에서 실행합니다.
+
 ### Moderations
+
+`09.endpoints-moderations` 디렉토리에서 실행합니다.
 
 ## Assistants
 
 ### 예제 1
 
+TODO
+
 ### 예제 2
+
+TODO
