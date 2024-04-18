@@ -1,12 +1,16 @@
 # OpenAI Endpoints Audio
 
+API: <https://platform.openai.com/docs/api-reference/audio>
+
+각 코드의 실행은 해당 디렉토리에서 다음과 같이 실행합니다.
+
+```bash
+python {실행하고자 하는 파일 이름}
+```
+
 ## text-to-speech
 
 `tts_practice.py`: 텍스트를 음성으로 변환하기
-
-```bash
-python tts_practice.py
-```
 
 결과:
 
@@ -15,10 +19,6 @@ python tts_practice.py
 ## speech-to-text
 
 `stt_practice.py`: 음성을 텍스트로 변환하기, 앞서 생성한 `speech.mp3` 파일을 사용합니다.
-
-```bash
-python stt_practice.py
-```
 
 결과:
 
