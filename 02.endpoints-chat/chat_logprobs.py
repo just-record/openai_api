@@ -24,7 +24,3 @@ for i, content in enumerate(contents):
     for j, top_logprob in enumerate(top_logprobs):
         print(f'    {j+1} - token: {top_logprob.token}, logprob: {top_logprob.logprob}')
     print('')
-
-
-
-# print(completion.choices[0].logprobs)

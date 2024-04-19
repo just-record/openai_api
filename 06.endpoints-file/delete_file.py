@@ -4,6 +4,6 @@ from openai import OpenAI
 
 client = OpenAI()
 
-file = client.files.delete("file-w0yiSpyN8zrnybv0CXYAXUMk")
+file = client.files.delete("file-123abc")
 
 print(file.model_dump_json())

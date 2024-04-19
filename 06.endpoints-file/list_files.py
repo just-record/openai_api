@@ -5,5 +5,5 @@ from openai import OpenAI
 client = OpenAI()
 
 files = client.files.list()
-for file in files.to_dict()['data']:
-  print(file)
+for file in files.data:
+  print(file.model_dump_json())

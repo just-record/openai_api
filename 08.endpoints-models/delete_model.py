@@ -4,5 +4,6 @@ from openai import OpenAI
 
 client = OpenAI()
 
-content = client.files.content("file-123abc")
-print(content.content.decode('utf-8')) # bytes to string
+model = client.models.delete("davinci:ft-personal-2023-xx-xx-xx-xx-xx")
+
+print(model.model_dump_json())

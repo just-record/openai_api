@@ -94,7 +94,7 @@ Hello. Nice to meet you.
 
 ## Chat - Image 질의 (Base64)
 
-`chat_image_base64.py`: 이미지를 Base64로 인코딩하여 질의할 수 있습니다. 이미지는 `otter.png` 파일을 사용합니다.
+`chat_image_base64.py`: 내 컴퓨터의 이미지를 Base64로 인코딩하여 질의할 수 있습니다. 이미지는 `otter.png` 파일을 사용합니다.
 
 ![수달 이미지](otter.png)
 
