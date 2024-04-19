@@ -10,7 +10,7 @@ python {실행하고자 하는 파일 이름}
 
 ## Chat - 답변 생성
 
-`chat_basic.py`: 텍스트를 음성으로 변환하기
+`chat_basic.py`: 질의에 답변하기
 
 결과:
 
