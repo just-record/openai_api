@@ -69,9 +69,20 @@ Hello. Nice to meet you.
 
 `chat_json.py`: 답변을 JSON 형식으로 출력할 수 있습니다.
 
+'gpt-3.5-turbo-0125', 'gpt-4-turbo-preview' 모델이 사용 가능합니다. 다른 모델들 중 'gpt-3.5-turbo-0613'는 사용이 불가능 한 걸 확인했습니다.
+
+결과:
+
+```json
+{
+  "winner": "Los Angeles Dodgers",
+  "year": 2020
+}
+```
+
 ## Chat - Image 질의 (URL)
 
-`chat_image_url.py`: 인터넷에 있는 이미지에 관련된 질문을 할 수 있습니다. 
+`chat_image_url.py`: 인터넷에 있는 이미지에 관련된 질문을 할 수 있습니다.
 
 ![이미지 URL](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg)
 
@@ -120,4 +131,75 @@ pip install requests
 
 두 이미지 사이의 가장 큰 차이점은 첫 번째는 애니메이션으로 제작된 동물의 초상화이고, 두 번째는 실제 자연 풍경의 사진이라는 점입니다. 첫 번째 이미지는 예술적인 요소가 강조되어 있으며, 두 번째 이미지는  
 자연 그대로의 아름다움을 보여 줍니다.
+```
+
+## Chat - Streaming
+
+`chat_streaming.py`: 답변을 스트리밍으로 출력합니다.
+
+결과: Streaming으로 출력
+
+```text
+Of course! I'll be happy to provide a detaile...
+```
+
+## Chat - Functions
+
+`chat_functions.py`: tools를 사용하여 Functions를 호출 할 수 있는 형태를 생성합니다.
+
+- `def get_current_weather(location: str, unit: str = "celsius")`: 함수를 선언합니다.
+- `tools`: AI에서 생성 할 함수를 정의합니다.
+- API response를 사용하여 함수(get_current_weather)를 호출합니다.
+
+결과:
+
+```text
+The current weather in Boston, MA is 37 degrees celsius.
+```
+
+## Chat - Logprobs
+
+`chat_logprobs.py`: logprobs를 사용하여 각 토큰의 확률을 출력합니다.
+
+결과:
+
+```text
+Hello! How can I assist you today?
+--------------------
+1 - token: Hello, logprob: -0.31725305
+    1 - token: Hello, logprob: -0.31725305
+    2 - token: Hi, logprob: -1.3190403
+
+2 - token: !, logprob: -0.02380986
+    1 - token: !, logprob: -0.02380986
+    2 - token:  there, logprob: -3.787621
+
+3 - token:  How, logprob: -5.4669687e-05
+    1 - token:  How, logprob: -5.4669687e-05
+    2 - token: <|end|>, logprob: -10.953937
+
+4 - token:  can, logprob: -0.015801601
+    1 - token:  can, logprob: -0.015801601
+    2 - token:  may, logprob: -4.161023
+
+5 - token:  I, logprob: -3.7697225e-06
+    1 - token:  I, logprob: -3.7697225e-06
+    2 - token:  assist, logprob: -13.596657
+
+6 - token:  assist, logprob: -0.04571125
+    1 - token:  assist, logprob: -0.04571125
+    2 - token:  help, logprob: -3.1089056
+
+7 - token:  you, logprob: -5.4385737e-06
+    1 - token:  you, logprob: -5.4385737e-06
+    2 - token:  today, logprob: -12.807695
+
+8 - token:  today, logprob: -0.0040071653
+    1 - token:  today, logprob: -0.0040071653
+    2 - token: ?, logprob: -5.5247097
+
+9 - token: ?, logprob: -0.0008108172
+    1 - token: ?, logprob: -0.0008108172
+    2 - token: ?
+, logprob: -7.184561
 ```
