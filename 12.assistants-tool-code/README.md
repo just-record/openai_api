@@ -10,7 +10,7 @@ API: <https://platform.openai.com/docs/api-reference/assistants>
 python {실행하고자 하는 파일 이름}
 ```
 
-## 파일 업로드
+<!-- ## 파일 업로드
 
 먼저 분석할 csv 파일을 업로드 합니다. 업로드 할 파일은 다음과 같습니다.
 
@@ -20,7 +20,12 @@ python {실행하고자 하는 파일 이름}
   - `06.endpoints-file/upload_file.py`: 파일 업로드
 - 기존 업로드 된 파일 검색
   - `06.endpoints-file/list_files.py`: 업로드 된 파일 목록을 조회
-  - `06.endpoints-file/retrieve_file.py`: 파일 ID로 특정 파일 검색
+  - `06.endpoints-file/retrieve_file.py`: 파일 ID로 특정 파일 검색 -->
+
+## 자료 출처
+
+- `train.csv`(최초 등록): <https://www.kaggle.com/hesh97/titanicdataset-traincsv/data> - kaggle의 Titanic 훈련용 데이터셋
+- `netflix.csv`(변경할 파일): <https://www.kaggle.com/datasets/yaminh/netflix-dataset-for-analysis?select=netflix.csv> - kaggle의 Netflix 데이터셋
 
 ## 업로드한 파일 내용을 질의 하기
 
@@ -40,8 +45,6 @@ python {실행하고자 하는 파일 이름}
 `main_modify_file.py`: 질의 하다가 중간에 file을 변경 하기. 최초 Assistant 생성 시에 file을 지정하고 질의를 하다가 중간에 다른 file로 변경 하여 질의 합니다.
 
 ### 변경할 파일
-
-`netflix.csv`(변경할 파일): 자료출처 - <https://www.kaggle.com/datasets/yaminh/netflix-dataset-for-analysis?select=netflix.csv>
 
 `/f`를 입력하면 Assistants의 file(분석 파일)을 위의 파일로 변경합니다.
 
