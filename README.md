@@ -78,6 +78,50 @@ TODO
 
 API: <https://platform.openai.com/docs/api-reference/assistants>
 
-### Assistants 기본 사용 하기ㅣ
+### Assistants - 기본 사용 하기
 
 `10.assistants-overview` 디렉토리에서 실행합니다. Assistants를 사용하는 기본적인 방법을 연습합니다.
+
+### Assistants - 대화 이어서 하기
+
+`11.assistants-chat` 디렉토리에서 실행합니다. Assistants를 사용하여 대화를 이어서 하는 방법을 연습합니다.
+
+### Tool('code_interpreter')데이터 분석 하기
+
+`12.assistants-tool-code` 디렉토리에서 실행합니다. Tool('code_interpreter')을 사용하여 데이터 분석을 하는 방법을 연습합니다.
+
+### code-interpreter - 서로 다른 2개 이상의 파일을 사용하여 질의하기
+
+TODO
+
+### 이미지를 답변 받았을 때 처리하기
+
+TODO
+
+### file_search - 기본 사용
+
+TODO
+
+### file_search - 2개 이상의 파일을 사용하여 질의하기
+
+TODO
+
+### functions_calling - 2개 이상의 함수를 사용하여 질의하기
+
+TODO
+
+### functions_calling - 시나리오를 작성 하여 질의하기
+
+TODO
+
+### Thread의 전체 목록을 조회 할 수 있나? 없는 것 같은데 Thread는 언제 삭제 되나?
+
+TODO
+
+### 새로 생긴 Vector Store, Vector Store File, Vector Store File Batches
+
+TODO
+
+### Run의 required_action 분석 하기
+
+TODO - 언제 발생 되는지, 어떻게 사용 되는지

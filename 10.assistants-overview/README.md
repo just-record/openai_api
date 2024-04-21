@@ -1,4 +1,4 @@
-# OpenAI Assistants
+# OpenAI Assistants - 기본 사용 하기
 
 API: <https://platform.openai.com/docs/api-reference/assistants>
 
@@ -63,3 +63,20 @@ Let me calculate that for you.
 <user>
 I need to solve the equation `3x + 11 = 14`. Can you help me?
 ------
+```
+
+## 7. Stream 사용 하기
+
+### 7.1. Thread에 Message 추가
+
+`add_message_2.py`: Thread에 Message를 추가합니다.
+
+### 7.2. Message 확인
+
+`get_thread_meaasge.py`: Thread의 Message를 확인합니다.
+
+### 7.3. Run
+
+`run_event_handler.py`: Run을 stream 합니다.
+
+결과: Assistant의 답변이 Streaming 됩니다.

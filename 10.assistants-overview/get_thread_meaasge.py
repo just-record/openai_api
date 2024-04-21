@@ -5,7 +5,7 @@ import time
 
 client = OpenAI()
 
-thread_id = "thread_ASW07mbTGURl6qoQi63bOnm8"  # 조금 전 생성한  thread의 ID를 사용합니다.
+thread_id = "thread_123abc"  # 조금 전 생성한  thread의 ID를 사용합니다.
 
 thread_messages = client.beta.threads.messages.list(thread_id)
 message_contents = thread_messages.data
