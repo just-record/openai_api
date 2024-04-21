@@ -78,10 +78,9 @@ TODO
 
 API: <https://platform.openai.com/docs/api-reference/assistants>
 
-### 예제 1
+### Assistants 기본 사용 하기ㅣ
 
-TODO
+`10.assistants-overview` 디렉토리에서 실행합니다. Assistants를 사용하는 기본적인 방법을 연습합니다.
 
-### 예제 2
+<!-- `11.assistants-practice` 디렉토리에서 실행합니다. Assistants를 연습합니다. -->
 
-TODO
