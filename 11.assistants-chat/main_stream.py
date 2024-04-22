@@ -39,8 +39,8 @@ def delete_thread(client: OpenAI, thread_id: str):
 
 if __name__ == '__main__':
     client = OpenAI()
-    assistant = get_assistant(client)   # assistant 생성
-    thread = get_thread(client)         # thread 생성
+    assistant = get_assistant(client)
+    thread = get_thread(client)
     
     while True:
         message = get_user_query()  # "I need to solve the equation `3x + 11 = 14`. Can you help me?"
@@ -49,9 +49,10 @@ if __name__ == '__main__':
             print("Quitting...")
             break
         else:
-            add_message_to_thread(client=client, thread_id=thread.id, message=message, role=role)  # message 추가
+            add_message_to_thread(client=client, thread_id=thread.id, message=message, role=role)
             print(f'You> {message}')
 
+            # stream 생성
             with client.beta.threads.runs.stream(
                 thread_id=thread.id,
                 assistant_id=assistant.id,

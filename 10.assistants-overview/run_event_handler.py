@@ -32,11 +32,12 @@ class EventHandler(AssistantEventHandler):
 
 client = OpenAI()
 
-assistant_id = "asst_123abc"  # 조금 전 생성한 assistant의 ID를 사용합니다.
+assistant_id = "asst_123abc"
 assistant = client.beta.assistants.retrieve(assistant_id)
-thread_id = "thread_123abc"  # 조금 전 생성한  thread의 ID를 사용합니다.
+thread_id = "thread_123abc"
 thread = client.beta.threads.retrieve(thread_id)
 
+# stream 생성 - event_handler를 사용하여 response stream을 처리
 with client.beta.threads.runs.stream(
     thread_id=thread.id,
     assistant_id=assistant.id,

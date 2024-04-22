@@ -90,13 +90,12 @@ API: <https://platform.openai.com/docs/api-reference/assistants>
 
 `12.assistants-tool-code` 디렉토리에서 실행합니다. Tool('code_interpreter')을 사용하여 데이터 분석을 하는 방법을 연습합니다.
 
-### code-interpreter - 서로 다른 2개 이상의 파일을 사용하여 질의하기
+### code-interpreter - 기타
 
-TODO
+`13.assistants-tool-code-files` 디렉토리에서 실행합니다.
 
-### 이미지를 답변 받았을 때 처리하기
-
-TODO
+- 서로 다른 2개 이상의 파일을 사용하여 질의하기
+- 이미지로 답변 받았을 때 처리하기
 
 ### file_search - 기본 사용
 

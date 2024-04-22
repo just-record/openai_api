@@ -26,20 +26,6 @@ def get_assistant(
     )
 
 
-def get_assistant_byid(client: OpenAI, assistant_id: str):
-    return client.beta.assistants.retrieve(assistant_id)
-
-
-def modify_assistant_files(
-        client: OpenAI, 
-        assistant_id: str,
-        file_ids: list):
-    client.beta.assistants.update(
-        assistant_id=assistant_id,
-        file_ids=file_ids,
-    )
-
-
 def get_thread(client: OpenAI):
     return client.beta.threads.create()
 
@@ -77,6 +63,13 @@ def get_completed_run(client: OpenAI, thread_id: str, run_id: str):
     return run
 
 
+# File 다운로드
+def download_file(file_id: str):
+    file = client.files.retrieve(file_id) # File 정보 가져오기
+    file_content = client.files.content(file_id) # File 내용 가져오기
+    with open(f'{file.filename}.png', 'wb') as f:
+        f.write(file_content.content)
+
 def print_assistant_messages(client: OpenAI, thread_id: str):
     message_history = []
     thread_messages = client.beta.threads.messages.list(thread_id, order='desc')
@@ -87,12 +80,14 @@ def print_assistant_messages(client: OpenAI, thread_id: str):
                 if content.type == 'text' and content.text.value:
                     message_history.append(f'Assistant> {content.text.value}')
                 elif content.type == 'image_file' and content.image_file.file_id:
-                    message_history.append(f'Assistant> {content.image_file.file_id}')
+                    # 파일 다운로드
+                    download_file(content.image_file.file_id)
         else:
             break
     
     for message in message_history[::-1]:
         print(message)
+
 
 def delete_assistant(client: OpenAI, assistant_id: str):
     client.beta.assistants.delete(assistant_id)
@@ -108,16 +103,16 @@ if __name__ == '__main__':
     
     client = OpenAI()
 
-    file_path = './train.csv'
-    file = upload_file(client, file_path)
-    modify_file_id = ''
+    files_path = ['./train.csv']
+    files = [upload_file(client, file_path) for file_path in files_path]
+    files_id = [file.id for file in files]
 
     assistant_params = {
         "name": "Data Analysis Expert",
         "instructions": "You are a data analysis expert. Analyze data, generate insights, create visualizations, and run statistical tests. Please provide detailed explanations for each step of your analysis.",
         "tools": [{"type": "code_interpreter"}],
         "model": "gpt-4-turbo-2024-04-09",
-        "file_ids": [file.id]
+        "file_ids": files_id
     }
     assistant = get_assistant(client, **assistant_params)
     thread = get_thread(client)
@@ -128,15 +123,6 @@ if __name__ == '__main__':
         if message == "/q":
             print("Quitting...")
             break
-        elif message == "/f":
-            file_path = './netflix.csv'
-            modify_file = upload_file(client, file_path)
-            modify_file_id = modify_file.id  
-            modify_assistant_files(client=client, assistant_id=assistant.id, file_ids=[modify_file_id])
-            # thread 새로 생성
-            thread = get_thread(client)
-            print(f'thread: {thread}')
-            print(f'You> File has been updated.')
         else:
             add_message_to_thread(client=client, thread_id=thread.id, message=message, role=role)
             print(f'You> {message}')
@@ -144,18 +130,14 @@ if __name__ == '__main__':
             run = get_completed_run(client, thread.id, run.id)
 
             if run.status == "completed":
-                print_assistant_messages(client, thread.id)
+                print(print_assistant_messages(client, thread.id))
             else:
                 print("There is a problem, please try again.")
 
     delete_assistant(client, assistant.id)
     delete_thread(client, thread.id)
-    delete_file(client, file.id)
-    if modify_file_id:
-        delete_file(client, modify_file_id)
-    
-
-    
+    for file in files:
+        delete_file(client, file.id)
 
 
 
