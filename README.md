@@ -78,6 +78,8 @@ TODO
 
 API: <https://platform.openai.com/docs/api-reference/assistants>
 
+**문서를 작성 하는 동안 Assistants의 version이 변경 되었습니다. 작성하던 문서는 'V1'으로 그대로 두고 새롭게 작성하겠습니다.**
+
 ### Assistants - 기본 사용 하기
 
 `10.assistants-overview` 디렉토리에서 실행합니다. Assistants를 사용하는 기본적인 방법을 연습합니다.
@@ -86,24 +88,22 @@ API: <https://platform.openai.com/docs/api-reference/assistants>
 
 `11.assistants-chat` 디렉토리에서 실행합니다. Assistants를 사용하여 대화를 이어서 하는 방법을 연습합니다.
 
+## Assistants - V1
+
 ### Tool('code_interpreter')데이터 분석 하기
 
-`12.assistants-tool-code` 디렉토리에서 실행합니다. Tool('code_interpreter')을 사용하여 데이터 분석을 하는 방법을 연습합니다.
+`90.assistants-tool-code` 디렉토리에서 실행합니다. Tool('code_interpreter')을 사용하여 데이터 분석을 하는 방법을 연습합니다.
 
 ### code-interpreter - 기타
 
-`13.assistants-tool-code-files` 디렉토리에서 실행합니다.
+`91.assistants-tool-code-files` 디렉토리에서 실행합니다.
 
 - 서로 다른 2개 이상의 파일을 사용하여 질의하기
 - 이미지로 답변 받았을 때 처리하기
 
 ### file_search - 기본 사용
 
-TODO
-
-### file_search - 2개 이상의 파일을 사용하여 질의하기
-
-TODO
+`92.assistants-tool-file-search` 디렉토리에서 실행합니다. file_search를 사용하여 질의하는 방법을 연습합니다.
 
 ### functions_calling - 2개 이상의 함수를 사용하여 질의하기
 
