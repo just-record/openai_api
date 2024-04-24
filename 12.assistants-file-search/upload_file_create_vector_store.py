@@ -22,7 +22,7 @@ if __name__ == '__main__':
     vector_store_name = "Data Query Expert"
     vector_store = create_vector_store(client, name=vector_store_name)
 
-    file_paths = ['./이효석-모밀꽃_필_무렵.pdf', './김유정-동백꽃-조광.pdf']
+    file_paths = ['../resources/이효석-모밀꽃_필_무렵.pdf', '../resources/김유정-동백꽃-조광.pdf']
     file_batch = get_file_batch(client, vector_store.id, file_paths)
 
     print(f'file_batch.status: {file_batch.status}')

@@ -14,7 +14,7 @@ if __name__ == '__main__':
     
     client = OpenAI()
 
-    file = create_file(client, file_path='../resources/김동인-광염_소나타-중외일보.pdf', purpose="assistants")
+    file = create_file(client, file_path='../resources/train.csv', purpose="assistants")
 
     print(file.model_dump_json())
 

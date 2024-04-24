@@ -95,19 +95,13 @@ pip install -U openai
 
 ### Assistants - File Search
 
-TODO
-
 `12.assistants-file-search` 디렉토리에서 실행합니다. 모델 외부의 지식을 사용하여 질의하는 방법을 연습합니다.
 
 ### Assistants - Code Interpreter
 
-TODO
-
 `13.assistants-code-interpreter` 디렉토리에서 실행합니다. 샌드박스된 실행 환경에서 Python 코드를 작성 하고 실행하는 방법을 연습합니다.
 
 ### Assistants - Functions Calling
-
-TODO
 
 `14.assistants-functions-calling` 디렉토리에서 실행합니다. 함수를 설명 하고 설명 된 함수 형태로 반환 값을 받아 사용하는 방법을 연습합니다.
 
@@ -127,23 +121,3 @@ TODO
 ### file_search - 기본 사용
 
 `92.assistants-tool-file-search` 디렉토리에서 실행합니다. file_search를 사용하여 질의하는 방법을 연습합니다.
-
-### functions_calling - 2개 이상의 함수를 사용하여 질의하기
-
-TODO
-
-### functions_calling - 시나리오를 작성 하여 질의하기
-
-TODO
-
-### Thread의 전체 목록을 조회 할 수 있나? 없는 것 같은데 Thread는 언제 삭제 되나?
-
-TODO
-
-### 새로 생긴 Vector Store, Vector Store File, Vector Store File Batches
-
-TODO
-
-### Run의 required_action 분석 하기
-
-TODO - 언제 발생 되는지, 어떻게 사용 되는지

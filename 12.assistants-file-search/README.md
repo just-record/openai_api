@@ -53,7 +53,7 @@ pip install -U openai
 
 ### 3. Message 추가
 
-`add_message_to_thread.py`
+`add_message.py`
 
 ### 4. Thread의 Message 확인
 
