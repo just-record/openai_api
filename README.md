@@ -80,6 +80,11 @@ API: <https://platform.openai.com/docs/api-reference/assistants>
 
 **문서를 작성 하는 동안 Assistants의 version이 변경 되었습니다. 작성하던 문서는 'V1'으로 그대로 두고 새롭게 작성하겠습니다.**
 
+```bash
+# openai의 버전을 업그레이드 합니다.
+pip install -U openai
+```
+
 ### Assistants - 기본 사용 하기
 
 `10.assistants-overview` 디렉토리에서 실행합니다. Assistants를 사용하는 기본적인 방법을 연습합니다.
@@ -87,6 +92,24 @@ API: <https://platform.openai.com/docs/api-reference/assistants>
 ### Assistants - 대화 이어서 하기
 
 `11.assistants-chat` 디렉토리에서 실행합니다. Assistants를 사용하여 대화를 이어서 하는 방법을 연습합니다.
+
+### Assistants - File Search
+
+TODO
+
+`12.assistants-file-search` 디렉토리에서 실행합니다. 모델 외부의 지식을 사용하여 질의하는 방법을 연습합니다.
+
+### Assistants - Code Interpreter
+
+TODO
+
+`13.assistants-code-interpreter` 디렉토리에서 실행합니다. 샌드박스된 실행 환경에서 Python 코드를 작성 하고 실행하는 방법을 연습합니다.
+
+### Assistants - Functions Calling
+
+TODO
+
+`14.assistants-functions-calling` 디렉토리에서 실행합니다. 함수를 설명 하고 설명 된 함수 형태로 반환 값을 받아 사용하는 방법을 연습합니다.
 
 ## Assistants - V1
 
