@@ -1,4 +1,4 @@
-# Code Interpreter 여러가지 테스트
+# Code Interpreter 연습
 
 ## 자료
 

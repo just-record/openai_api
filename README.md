@@ -115,6 +115,10 @@ pip install -U openai
 
 `21.code_interpreter` 디렉토리에서 실행합니다. Code Interpreter에 대해 여러가지 테스트를 합니다.
 
+### Function calling
+
+`22.function_calling` 디렉토리에서 실행합니다. Code Interpreter에 대해 여러가지 테스트를 합니다.
+
 ## Assistants - V1
 
 ### Tool('code_interpreter')데이터 분석 하기
