@@ -64,6 +64,6 @@ if __name__ == '__main__':
     for file in files.data:
         print(f'Files: {file.model_dump_json()}')
 
-        if file.purpose == 'assistants':
+        if file.purpose in ['assistants', 'assistants_output']:
             delete_target_files.append(file.id)
     delete_files(client, delete_target_files)
