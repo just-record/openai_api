@@ -105,11 +105,15 @@ pip install -U openai
 
 `14.assistants-functions-calling` 디렉토리에서 실행합니다. 함수를 설명 하고 설명 된 함수 형태로 반환 값을 받아 사용하는 방법을 연습합니다.
 
-## Assistants - 여러 케이스 연습
+## Assistants - 연습
 
 ### File Search
 
 `20.file_search_vector_store` 디렉토리에서 실행합니다. File Search에 대해 여러가지 테스트를 합니다.
+
+### Code Interpreter
+
+`21.code_interpreter` 디렉토리에서 실행합니다. Code Interpreter에 대해 여러가지 테스트를 합니다.
 
 ## Assistants - V1
 

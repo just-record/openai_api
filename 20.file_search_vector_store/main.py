@@ -117,6 +117,14 @@ def delete_assistant(client: OpenAI, assistant_id: str):
 def delete_thread(client: OpenAI, thread_id: str):
     client.beta.threads.delete(thread_id)   
 
+# # Vector Store 파일 삭제
+# def delete_vector_store_files(client: OpenAI, vector_store_id: str, file_batch_ids: List):
+#     for file_batch_id in file_batch_ids:
+#         client.beta.vector_stores.file_batches.cancel(
+#             vector_store_id=vector_store_id,
+#             batch_id=file_batch_id
+#         )
+
 # Vector Stores 삭제
 def delete_vector_stores(client: OpenAI, vector_store_ids: List):
     for vector_store_id in vector_store_ids:
@@ -132,6 +140,7 @@ if __name__ == '__main__':
 
     file_paths = ['../resources/이효석-모밀꽃_필_무렵.pdf']
     file_batch = get_file_batch(client, vector_store.id, file_paths)
+    print(f'File batch: {file_batch.model_dump_json()}')
 
 
     # Assistant 내용 변경
@@ -165,4 +174,5 @@ if __name__ == '__main__':
 
     delete_assistant(client, assistant.id)
     delete_thread(client, thread.id)
+    # delete_vector_store_files(client, vector_store_ids[0], [file_batch.id])
     delete_vector_stores(client, vector_store_ids)

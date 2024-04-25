@@ -132,6 +132,14 @@ def delete_vector_stores(client: OpenAI, vector_store_ids: List):
     for vector_store_id in vector_store_ids:
         client.beta.vector_stores.delete(vector_store_id)
 
+# # Vector Store 파일 삭제
+# def delete_vector_store_files(client: OpenAI, vector_store_id: str, file_batch_ids: List):
+#     for file_batch_id in file_batch_ids:
+#         client.beta.vector_stores.file_batches.cancel(
+#             vector_store_id=vector_store_id,
+#             batch_id=file_batch_id
+#         )
+
 # 업로드 된 File 삭제
 def delete_files(client: OpenAI, file_ids: List):
     for file_id in file_ids:
@@ -146,8 +154,8 @@ if __name__ == '__main__':
     vector_stores = [create_vector_store(client, name=vector_store_name) for vector_store_name in vector_store_names]
 
     file_paths = [['../resources/이효석-모밀꽃_필_무렵.pdf'], ['../resources/김유정-동백꽃-조광.pdf']]
-    for i, vector_store in enumerate(vector_stores):
-        get_file_batch(client, vector_store.id, file_paths[i])
+    file_batchs = [get_file_batch(client, vector_store.id, file_paths[i]) for i, vector_store in enumerate(vector_stores)]
+        
 
     # Message에 file이 attache 되도록 파일 업로드
     message_file_paths = ['../resources/김동인-광염_소나타-중외일보.pdf', '../resources/현진건-운수좋은날+B3356-개벽.pdf']
@@ -202,8 +210,12 @@ if __name__ == '__main__':
                 print_assistant_messages(client, thread.id)
             else:
                 print("There is a problem, please try again.")
+            
+        query_cnt += 1
 
     delete_assistant(client, assistant.id)
     delete_thread(client, thread.id)
+    # for i, vector_store in enumerate(vector_stores):
+    #     delete_vector_store_files(client, vector_store.id, [file_batchs[i].id])
     delete_vector_stores(client, [vector_store.id for vector_store in vector_stores])
     delete_files(client, [file.id for file in files])

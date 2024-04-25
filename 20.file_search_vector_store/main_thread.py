@@ -112,6 +112,16 @@ def delete_assistant(client: OpenAI, assistant_id: str):
 def delete_thread(client: OpenAI, thread_id: str):
     client.beta.threads.delete(thread_id)   
 
+
+# # Vector Store 파일 삭제
+# def delete_vector_store_files(client: OpenAI, vector_store_id: str, file_batch_ids: List):
+#     for file_batch_id in file_batch_ids:
+#         client.beta.vector_stores.file_batches.cancel(
+#             vector_store_id=vector_store_id,
+#             batch_id=file_batch_id
+#         )
+
+
 def delete_vector_stores(client: OpenAI, vector_store_ids: List):
     for vector_store_id in vector_store_ids:
         client.beta.vector_stores.delete(vector_store_id)
@@ -127,8 +137,7 @@ if __name__ == '__main__':
 
     # file_paths[0] - Assistant용, file_paths[1] - Thread용
     file_paths = [['../resources/이효석-모밀꽃_필_무렵.pdf'], ['../resources/김유정-동백꽃-조광.pdf']]
-    for i, vector_store in enumerate(vector_stores):
-        get_file_batch(client, vector_store.id, file_paths[i])
+    file_batchs = [get_file_batch(client, vector_store.id, file_paths[i]) for i, vector_store in enumerate(vector_stores)]
     
     # Assistant 내용 변경
     assistant_params = {
@@ -161,4 +170,6 @@ if __name__ == '__main__':
 
     delete_assistant(client, assistant.id)
     delete_thread(client, thread.id)
+    # for i, vector_store in enumerate(vector_stores):
+    #     delete_vector_store_files(client, vector_store.id, [file_batchs[i].id])
     delete_vector_stores(client, [vector_store.id for vector_store in vector_stores])

@@ -33,16 +33,16 @@ Assistant와 Thread, Message Vector Store를 등록(Message는 file)하고 질�
 
 질의:
 
-- 1 - 광염_소나타(Message 첫번째)
-- 2 - 광염_소나타(Message 첫번째)
-- 3 - 모밀꽃(Assistant)
-- 4 - 동백꽃(Thread)
-- 5 - 운수 좋은날(Message 두번째)
-- 6 - 광염_소나타(Message 첫번째)
-- 7 - 모밀꽃(Assistant)
-- 8 - 동백꽃(Thread)
-- 9 - 모든 파일에 내용이 없으며 거짓 정보를 질의
-- 10 - 모든 파일에 내용이 없으며 일반 상식인 내용을 질의
+- 1번째 - 광염_소나타(Message 첫번째)
+- 2번째 - 광염_소나타(Message 첫번째)
+- 3번째 - 모밀꽃(Assistant)
+- 4번째 - 동백꽃(Thread)
+- 5번째 - 운수 좋은날(Message 두번째)
+- 6번째 - 광염_소나타(Message 첫번째)
+- 7번째 - 모밀꽃(Assistant)
+- 8번째 - 동백꽃(Thread)
+- 9번째 - 모든 파일에 내용이 없으며 거짓 정보를 질의
+- 10번째 - 모든 파일에 내용이 없으며 일반 상식인 내용을 질의
 
 - 백성수의 다른 이름은 무엇인가?
 - 백성수가 작곡한 곡은 무엇인가?
@@ -62,3 +62,9 @@ Assistant와 Thread, Message Vector Store를 등록(Message는 file)하고 질�
 - Message에 파일을 attach 하고 다른 파일을 attach 해도 이전의 attach한 파일을 참조합니다.(대체 되지 않습니다.)
 - 파일에 내용이 없는 거짓 정보인 경우 잘못 된 정보임을 알려죽고 파일에 내용이 없음도 알려 줍니다.
 - 파일에 내용이 없는 일반 상식인 경우 일반 상식을 알려 줍니다.
+
+## `delete_objects.py`
+
+Vector Store에 file batch로 등록된 파일을 삭제 하는 방법을 모르겠습니다. 알게 되면 추가하겠습니다.
+
+Assistant와 Vector Store, File를 모두 삭제합니다. **실행 시 주의가 필요합니다.**
