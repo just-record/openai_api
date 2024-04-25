@@ -50,3 +50,10 @@ Message에 file을 포함한 Code Interpreter를 사용
 - 성별 생존율을 말해줘
 - 성별 생존율을 csv 파일로 작성해줘
 - 연령대별 생존자수를 csv 파일로 작성해줘
+
+## `main_input_output.py`
+
+tool_calls의 input과 output log를 확인
+
+- 성별 생존율을 막대 그래프로 보여줘
+- '/l'을 입력하여 code interpreter의 input/output log를 확인합니다.

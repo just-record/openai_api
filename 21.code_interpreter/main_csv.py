@@ -76,7 +76,6 @@ def get_completed_run(client: OpenAI, thread_id: str, run_id: str):
 
 # File 다운로드 - 확장자 추가
 def download_file(file_id: str, file_type: str = 'image'):
-    print(f'file_id: {file_id}')
     file = client.files.retrieve(file_id) # File 정보 가져오기
     file_content = client.files.content(file_id) # File 내용 가져오기
     if file_type == 'image':
@@ -178,6 +177,8 @@ if __name__ == '__main__':
                 print_assistant_messages(client, thread.id)
             else:
                 print("There is a problem, please try again.")
+        
+        query_cnt += 1
 
     delete_assistant(client, assistant.id)
     delete_thread(client, thread.id)

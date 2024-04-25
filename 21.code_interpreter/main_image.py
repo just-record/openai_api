@@ -161,6 +161,8 @@ if __name__ == '__main__':
                 print_assistant_messages(client, thread.id)
             else:
                 print("There is a problem, please try again.")
+        
+        query_cnt += 1
 
     delete_assistant(client, assistant.id)
     delete_thread(client, thread.id)
