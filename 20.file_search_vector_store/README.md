@@ -1,5 +1,11 @@
 # File Search 여러가지 테스트
 
+## 자료
+
+만료되거나 기증된 저작물: <https://gongu.copyright.or.kr/gongu/wrt/wrtCl/listWrtText.do?menuNo=200019>
+
+`이효석-모밀꽃_필_무렵.pdf`, `김유정-동백꽃-조광`, `김동인-광염_소나타-중외일보`, `현진건-운수좋은날+B3356-개벽`
+
 ## `main.py`
 
 Assistant에만 Vector Store를 등록하고 질의하는 방법을 연습합니다.

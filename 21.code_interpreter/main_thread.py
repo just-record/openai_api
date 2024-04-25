@@ -4,22 +4,13 @@ load_dotenv()
 from openai import OpenAI
 
 
-# Vector Store 생성
-def create_vector_store(client: OpenAI, name: str):
-    return client.beta.vector_stores.create(
-        name=name
+def upload_file(client: OpenAI, file_path: str):
+    return client.files.create(
+        file=open(file_path, "rb"),
+        purpose="assistants"
     )
 
 
-# 파일 업로드 및 Vector Store에 embedding
-def get_file_batch(client: OpenAI, vector_store_id: str, file_paths: list):
-    file_streams = [open(file_path, 'rb') for file_path in file_paths]
-    return client.beta.vector_stores.file_batches.upload_and_poll(
-        vector_store_id=vector_store_id, files=file_streams
-    )
-
-
-# Assistant 생성
 def get_assistant(
         client: OpenAI,
         name: str = "Assistant-default",
@@ -35,24 +26,22 @@ def get_assistant(
     )
 
 
-# Assistant의 Vector Store 업데이트
-def update_assistant_vetcot_store_ids(
+# Thread의 Code Interpreter의 Tool Resources 업데이트
+def update_thread_tool_resources(
         client: OpenAI,
-        assistant_id: str,
-        vector_store_ids: list,
+        thread_id: str,
+        tool_resources: dict,
         ):
-    return client.beta.assistants.update(
-        assistant_id=assistant_id,
-        tool_resources = {"file_search": {"vector_store_ids": vector_store_ids}}
+    return client.beta.threads.update(
+        thread_id=thread_id,
+        tool_resources = tool_resources
     )
 
 
-# Thread 생성
 def get_thread(client: OpenAI):
     return client.beta.threads.create()
 
 
-# Thread에 Message 추가
 def add_message_to_thread(client: OpenAI, thread_id: str, message: str, role: str = "user"):
     client.beta.threads.messages.create(
         thread_id=thread_id,
@@ -61,12 +50,10 @@ def add_message_to_thread(client: OpenAI, thread_id: str, message: str, role: st
     )
 
 
-# User Query 입력 받기
 def get_user_query():
     return input("Enter a query! (Enter '/q' to quit): ")
 
 
-# Run 생성
 def create_run(client: OpenAI, thread_id: str, assistant_id: str):
     return client.beta.threads.runs.create(
         thread_id=thread_id,
@@ -74,7 +61,6 @@ def create_run(client: OpenAI, thread_id: str, assistant_id: str):
     )
 
 
-# Run 조회
 def get_run(client: OpenAI, thread_id: str, run_id: str):
     return client.beta.threads.runs.retrieve(
         thread_id=thread_id,
@@ -82,7 +68,6 @@ def get_run(client: OpenAI, thread_id: str, run_id: str):
     )
 
 
-# Run이 완료 될 때까지 기다렸다가 가져 오기
 def get_completed_run(client: OpenAI, thread_id: str, run_id: str):
     run = get_run(client, thread_id, run_id)
     while run.status == "queued" or run.status == "in_progress":
@@ -90,7 +75,6 @@ def get_completed_run(client: OpenAI, thread_id: str, run_id: str):
     return run
 
 
-# 챗봇이 생성된 최종 Message 출력
 def print_assistant_messages(client: OpenAI, thread_id: str):
     message_history = []
     thread_messages = client.beta.threads.messages.list(thread_id, order='desc')
@@ -117,44 +101,37 @@ def delete_assistant(client: OpenAI, assistant_id: str):
 def delete_thread(client: OpenAI, thread_id: str):
     client.beta.threads.delete(thread_id)   
 
-# # Vector Store 파일 삭제
-# def delete_vector_store_files(client: OpenAI, vector_store_id: str, file_batch_ids: List):
-#     for file_batch_id in file_batch_ids:
-#         client.beta.vector_stores.file_batches.cancel(
-#             vector_store_id=vector_store_id,
-#             batch_id=file_batch_id
-#         )
-
-# Vector Stores 삭제
-def delete_vector_stores(client: OpenAI, vector_store_ids: List):
-    for vector_store_id in vector_store_ids:
-        client.beta.vector_stores.delete(vector_store_id)
+# 업로드 된 File 삭제
+def delete_files(client: OpenAI, file_ids: List):
+    for file_id in file_ids:
+        client.files.delete(file_id)      
 
 
 if __name__ == '__main__':
     
     client = OpenAI()
 
-    vector_store_name = "Data Query Expert"
-    vector_store = create_vector_store(client, name=vector_store_name)
+    file_paths = ['../resources/train.csv']
+    files = [upload_file(client, file_path) for file_path in file_paths]
 
-    file_paths = ['../resources/이효석-모밀꽃_필_무렵.pdf']
-    file_batch = get_file_batch(client, vector_store.id, file_paths)
-    print(f'File batch: {file_batch.model_dump_json()}')
-
-
-    # Assistant 내용 변경
     assistant_params = {
-        "name": "Data Query Expert",
-        "instructions": "You are an expert in searching and retrieving information from files. Please efficiently search through the files to find and extract information as requested, answer specific data-related queries, and provide clear explanations for your findings.",
-        "tools": [{"type": "file_search"}],
+        "name": "Data Analysis Expert",
+        "instructions": "You are a data analysis expert. Analyze data, generate insights, create visualizations, and run statistical tests. Please provide detailed explanations for each step of your analysis.",
+        "tools": [{"type": "code_interpreter"}],
         "model": "gpt-4-turbo"
     }
     assistant = get_assistant(client, **assistant_params)
-    vector_store_ids = [vector_store.id]
-    update_assistant_vetcot_store_ids(client, assistant.id, vector_store_ids)
+
     thread = get_thread(client)
+    # Thread code interpreter의 tool resources 추가
+    tool_resources = {
+        "code_interpreter": {
+            "file_ids": [file.id for file in files]
+        }
+    }
+    update_thread_tool_resources(client, thread.id, tool_resources)
     
+
     while True:
         message = get_user_query()
         role = "user"
@@ -174,5 +151,4 @@ if __name__ == '__main__':
 
     delete_assistant(client, assistant.id)
     delete_thread(client, thread.id)
-    # delete_vector_store_files(client, vector_store_ids[0], [file_batch.id])
-    delete_vector_stores(client, vector_store_ids)
+    delete_files(client, [file.id for file in files])

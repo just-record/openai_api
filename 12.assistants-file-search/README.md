@@ -21,7 +21,7 @@ pip install -U openai
 
 만료되거나 기증된 저작물: <https://gongu.copyright.or.kr/gongu/wrt/wrtCl/listWrtText.do?menuNo=200019>
 
-`이효석-모밀꽃_필_무렵.pdf`, `김유정-동백꽃-조광`, `김동인-광염_소나타-중외일보`
+`이효석-모밀꽃_필_무렵.pdf`, `김유정-동백꽃-조광`, `김동인-광염_소나타-중외일보`, `현진건-운수좋은날+B3356-개벽`
 
 ## Step 1: File Search 가 가능한 Assistants 생성
 
