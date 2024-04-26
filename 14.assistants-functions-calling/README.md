@@ -1,4 +1,4 @@
-# Tool('Function Calling')을 사용 하기
+# Tool('Function Calling')을 사용 하여 사용자 함수 호출하기
 
 API: <https://platform.openai.com/docs/api-reference/assistants>
 

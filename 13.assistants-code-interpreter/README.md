@@ -1,4 +1,4 @@
-# Tool('Code Interpreter')을 사용 하여 파일 내용 질의 하기
+# Tool('Code Interpreter')을 사용 하여 코드 생성 및 코드 실행하기
 
 API: <https://platform.openai.com/docs/api-reference/assistants>
 
