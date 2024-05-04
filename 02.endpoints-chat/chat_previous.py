@@ -9,7 +9,7 @@ completion = client.chat.completions.create(
   messages=[
     {"role": "system", "content": "You are a helpful assistant."},
     {"role": "user", "content": "Hello! My name is Hong Gildong."},
-    {"role": "system", "content": "Hello! How can I assist you today?"},
+    {"role": "assistant", "content": "Hello! How can I assist you today?"},
     {"role": "user", "content": "What is my name?."}
   ]
 )
